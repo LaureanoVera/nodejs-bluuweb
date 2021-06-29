@@ -15,12 +15,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/servicios', (req, res) => {
-  res.send('Estas en la pagina de servicios')
+  res.render('servicios', {title: 'Web de Servicios'})
 })
 
 // 404 error
 app.use((req, res, next) => {
-  res.status(404).sendFile(__dirname + '/public/404.html')
+  res.status(404).render('404', {
+    title: '404',
+    description: 'Pagina sin fondo'
+  })
 })
 
 app.listen(port, () => {
