@@ -2,12 +2,16 @@ const express = require("express");
 const app = express();
 const port = 3000
 
+// engine
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+
 // static
 app.use(express.static(__dirname + '/public'))
 
 // get
 app.get('/', (req, res) => {
-  res.send('Mi respuesta desde express')
+  res.render('index', {title: 'Titulo Dinamico'})
 })
 
 app.get('/servicios', (req, res) => {
