@@ -22,6 +22,15 @@ app.get("/team", (req, res) => {
   res.render('team', {team: ['Lauri', 'Ivan', 'Gerardo']})
 });
 
+// ===== 404ERR =====
+app.use((req, res, next) => {
+  res.status(404).render('404', {
+    title: '404',
+    err: '404 err'
+  })
+});
+
+// ===== LISTEN =====
 app.listen(port, () => {
   console.log(`Server Listening on port ${port}`);
 });
