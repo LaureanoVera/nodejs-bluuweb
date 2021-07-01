@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start":"node expressApp"
+    "start":"node expressApp",
+    "dev":"nodemon expressApp"
   },
   "repository": {
     "type": "git",
