@@ -2,6 +2,20 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// data bases
+const mongoose = require("mongoose");
+const user = "database_user";
+const password = "YBDnEuglZYCGqRGb";
+const dbName = 'veterinaria'
+const uri = `mongodb+srv://${user}:${password}@cluster0.yxxys.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Base de datos Conectada'))
+  .catch(e => console.log(e))
+
 // engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
